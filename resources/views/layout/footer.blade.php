@@ -4,6 +4,18 @@
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/simplebar/dist/simplebar.min.js"></script>
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.init.js"></script>
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/theme.js"></script>
+<!-- Custom Theme Settings -->
+<script>
+  userSettings = {
+    Layout: "horizontal", // vertical | horizontal
+    SidebarType: "full", // full | mini-sidebar
+    BoxedLayout: true, // true | false
+    Direction: "ltr", // ltr | rtl
+    Theme: "light", // light | dark
+    ColorTheme: "Blue_Theme", // Blue_Theme | Aqua_Theme | Purple_Theme | Green_Theme | Cyan_Theme | Orange_Theme
+    cardBorder: false, // true | false
+  };
+</script>
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.min.js"></script>
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/sidebarmenu.js"></script>
 
@@ -112,5 +124,5 @@
     $("#select2-merek").val('').change();
 
     filterData();
-  }
+  }  
 </script>

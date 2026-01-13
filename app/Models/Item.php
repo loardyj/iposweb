@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+    protected $connection= 'pgsql';
     protected $table = 'tbl_item';
     protected $primaryKey = 'kodeitem';
     public $incrementing = false;

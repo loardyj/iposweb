@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class Pelanggan extends Authenticatable
 {
+    protected $connection= 'pgsql';
     protected $table = 'tbl_supel';
     protected $primaryKey = 'kode';
     public $incrementing = false;

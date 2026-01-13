@@ -23,7 +23,7 @@
               <li class="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-block mx-0">
                 <div class="hover-dd">
                   <a class="nav-link" href="javascript:void(0)">
-                    Apps<span class="mt-1">
+                    Apps1<span class="mt-1">
                       <i class="ti ti-chevron-down fs-3"></i>
                     </span>
                   </a>
@@ -444,7 +444,7 @@
                       <span>
                         <i class="ti ti-apps"></i>
                       </span>
-                      <span class="hide-menu">Apps</span>
+                      <span class="hide-menu">Apps2</span>
                     </a>
                     <ul aria-expanded="false" class="collapse first-level my-3">
                       <li class="sidebar-item py-2">
@@ -620,7 +620,7 @@
               <li class="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-flex">
                 <div class="hover-dd">
                   <a class="nav-link" href="javascript:void(0)">
-                    Apps<span class="mt-1">
+                    Apps3<span class="mt-1">
                       <i class="ti ti-chevron-down fs-3"></i>
                     </span>
                   </a>

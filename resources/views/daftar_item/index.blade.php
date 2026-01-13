@@ -49,12 +49,13 @@
                               </div>
                               <div class="modal-body">
                                 <div class="mb-4">
-                                  <label for="select2-jenis" class="form-label">Jenis</label>
-                                  <select class="form-control" id="select2-jenis"><option>&nbsp;</option></select>
+                                  <!-- <label for="select2-jenis" class="form-label">Jenis</label> -->
+                                  <p class="form-label">Jenis</p>
+                                  <select class="select2 form-control" id="select2-jenis"><option>&nbsp;</option></select>
                                 </div>
                                 <div class="mb-4">
-                                  <label for="select2-merek" class="form-label">Merek</label>
-                                  <select class="form-control" id="select2-merek"><option>&nbsp;</option></select>
+                                  <p class="form-label">Merek</p>
+                                  <select class="select2 form-control" id="select2-merek"><option>&nbsp;</option></select>
                                 </div>
                               </div>
                               <div class="modal-footer">

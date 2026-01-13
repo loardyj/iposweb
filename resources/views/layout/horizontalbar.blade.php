@@ -1,4 +1,4 @@
-<aside class="left-sidebar with-horizontal">
+<aside class="left-sidebar with-horizontal" style="display:none">
         <!-- Sidebar scroll-->
         <div>
           <!-- Sidebar navigation-->

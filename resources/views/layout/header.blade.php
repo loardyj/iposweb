@@ -32,5 +32,18 @@
     .dataTables_filter {
       float: left; /* Moves search to the left */
     }
+
+    /* @media (max-width: 1299.98px) { */
+      html[data-layout=horizontal] .body-wrapper>.container-fluid, html[data-layout=horizontal] .body-wrapper>.container-lg, html[data-layout=horizontal] .body-wrapper>.container-md, html[data-layout=horizontal] .body-wrapper>.container-sm, html[data-layout=horizontal] .body-wrapper>.container-xl, html[data-layout=horizontal] .body-wrapper>.container-xxl {
+        padding-top: 30px !important;
+      }
+    /* } */
+    
+    @media (min-width:992px){
+      #tombolCart {
+        display: none !important;
+      }
+    }
+    
   </style>
 </head>
