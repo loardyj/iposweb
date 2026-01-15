@@ -45,5 +45,9 @@
       }
     }
     
+    .nav-link.active {
+      transition: all .1s ease-in-out;
+      color: var(--bs-primary) !important;
+    }
   </style>
 </head>

@@ -189,7 +189,7 @@
             </ul>
 
             <div class="d-block d-lg-none py-4">
-              <a href="../main/index.html" class="text-nowrap logo-img">
+              <a href="{{ route('home') }}" class="text-nowrap logo-img">
                 <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" class="dark-logo" alt="Logo-Dark" />
                 <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
               </a>
@@ -602,22 +602,22 @@
                 </a>
               </li>
               <li class="nav-item d-none d-xl-block">
-                <a href="../main/index.html" class="text-nowrap nav-link">
+                <a href="{{ route('home') }}" class="text-nowrap nav-link">
                   <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="modernize-img" />
                   <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/light-logo.svg" class="light-logo" width="180" alt="modernize-img" />
                 </a>
               </li>
-              <li class="nav-item nav-icon-hover-bg rounded-circle d-none d-xl-flex">
+              <!-- <li class="nav-item nav-icon-hover-bg rounded-circle d-none d-xl-flex">
                 <a class="nav-link" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i class="ti ti-search"></i>
                 </a>
-              </li>
+              </li> -->
             </ul>
             <ul class="navbar-nav quick-links d-none d-xl-flex align-items-center">
               <!-- ------------------------------- -->
               <!-- start apps Dropdown -->
               <!-- ------------------------------- -->
-              <li class="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-flex">
+              <!-- <li class="nav-item nav-icon-hover-bg rounded w-auto dropdown d-none d-lg-flex">
                 <div class="hover-dd">
                   <a class="nav-link" href="javascript:void(0)">
                     Apps3<span class="mt-1">
@@ -770,22 +770,22 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> -->
               <!-- ------------------------------- -->
               <!-- end apps Dropdown -->
               <!-- ------------------------------- -->
               <li class="nav-item dropdown-hover d-none d-lg-block">
-                <a class="nav-link" href="../main/app-chat.html">Chat</a>
+                <a class="nav-link {{ Route::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a>
               </li>
               <li class="nav-item dropdown-hover d-none d-lg-block">
-                <a class="nav-link" href="../main/app-calendar.html">Calendar</a>
+                <a class="nav-link {{ Route::is('daftar_item') ? 'active' : '' }}" href="{{ route('daftar_item') }}">Daftar Item</a>
               </li>
-              <li class="nav-item dropdown-hover d-none d-lg-block">
+              <!-- <li class="nav-item dropdown-hover d-none d-lg-block">
                 <a class="nav-link" href="../main/app-email.html">Email</a>
-              </li>
+              </li> -->
             </ul>
             <div class="d-block d-xl-none">
-              <a href="../main/index.html" class="text-nowrap nav-link">
+              <a href="{{ route('home') }}" class="text-nowrap nav-link">
                 <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" width="180" alt="modernize-img" />
               </a>
             </div>
@@ -803,15 +803,15 @@
                   <!-- ------------------------------- -->
                   <!-- start language Dropdown -->
                   <!-- ------------------------------- -->
-                  <li class="nav-item nav-icon-hover-bg rounded-circle">
+                  <!-- <li class="nav-item nav-icon-hover-bg rounded-circle">
                     <a class="nav-link moon dark-layout" href="javascript:void(0)">
                       <i class="ti ti-moon moon"></i>
                     </a>
                     <a class="nav-link sun light-layout" href="javascript:void(0)">
                       <i class="ti ti-sun sun"></i>
                     </a>
-                  </li>
-                  <li class="nav-item nav-icon-hover-bg rounded-circle dropdown">
+                  </li> -->
+                  <!-- <li class="nav-item nav-icon-hover-bg rounded-circle dropdown">
                     <a class="nav-link" href="javascript:void(0)" id="drop2" aria-expanded="false">
                       <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/svgs/icon-flag-en.svg" alt="modernize-img" width="20px" height="20px" class="rounded-circle object-fit-cover round-20" />
                     </a>
@@ -843,7 +843,7 @@
                         </a>
                       </div>
                     </div>
-                  </li>
+                  </li> -->
                   <!-- ------------------------------- -->
                   <!-- end language Dropdown -->
                   <!-- ------------------------------- -->
@@ -864,7 +864,7 @@
                   <!-- ------------------------------- -->
                   <!-- start notification Dropdown -->
                   <!-- ------------------------------- -->
-                  <li class="nav-item nav-icon-hover-bg rounded-circle dropdown">
+                  <!-- <li class="nav-item nav-icon-hover-bg rounded-circle dropdown">
                     <a class="nav-link position-relative" href="javascript:void(0)" id="drop2" aria-expanded="false">
                       <i class="ti ti-bell-ringing"></i>
                       <div class="notification bg-primary rounded-circle"></div>
@@ -934,7 +934,7 @@
                         <button class="btn btn-outline-primary w-100">See All Notifications</button>
                       </div>
                     </div>
-                  </li>
+                  </li> -->
                   <!-- ------------------------------- -->
                   <!-- end notification Dropdown -->
                   <!-- ------------------------------- -->
@@ -958,14 +958,15 @@
                         <div class="d-flex align-items-center py-9 mx-7 border-bottom">
                           <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="80" height="80" alt="modernize-img" />
                           <div class="ms-3">
-                            <h5 class="mb-1 fs-3">Mathew Anderson</h5>
-                            <span class="mb-1 d-block">Designer</span>
+                            <h5 class="mb-1 fs-3">{{ Auth::user()->nama }}</h5>
+                            <span class="mb-1 d-block">{{ Auth::user()->nama_npwp }}</span>
+                            <span class="mb-1 d-block"></span>
                             <p class="mb-0 d-flex align-items-center gap-2">
-                              <i class="ti ti-mail fs-4"></i> info@modernize.com
+                              <i class="ti ti-star fs-4"></i> {{ Auth::user()->kgrup }}
                             </p>
                           </div>
                         </div>
-                        <div class="message-body">
+                        <!-- <div class="message-body">
                           <a href="../main/page-user-profile.html" class="py-8 px-7 mt-8 d-flex align-items-center">
                             <span class="d-flex align-items-center justify-content-center text-bg-light rounded-1 p-6">
                               <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/svgs/icon-account.svg" alt="modernize-img" width="24" height="24" />
@@ -993,9 +994,9 @@
                               <span class="fs-2 d-block text-body-secondary">To-do and Daily Tasks</span>
                             </div>
                           </a>
-                        </div>
+                        </div> -->
                         <div class="d-grid py-4 px-7 pt-8">
-                          <div class="upgrade-plan bg-primary-subtle position-relative overflow-hidden rounded-4 p-4 mb-9">
+                          <!-- <div class="upgrade-plan bg-primary-subtle position-relative overflow-hidden rounded-4 p-4 mb-9">
                             <div class="row">
                               <div class="col-6">
                                 <h5 class="fs-4 mb-3 fw-semibold">Unlimited Access</h5>
@@ -1007,8 +1008,8 @@
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <a href="../main/authentication-login.html" class="btn btn-outline-primary">Log Out</a>
+                          </div> -->
+                          <a href="{{ route('logout') }}" class="btn btn-outline-primary">Log Out</a>
                         </div>
                       </div>
                     </div>

@@ -9,7 +9,7 @@ use App\Http\Controllers\PelangganLoginController;
 
 Route::get('/', function () {
     return redirect('/login');
-});
+})->name('home');
 
 Route::get('/login', [PelangganLoginController::class, 'index'])->name('url_login');
 Route::post('/login', [PelangganLoginController::class, 'login'])->name('login');
