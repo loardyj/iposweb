@@ -5,7 +5,7 @@
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.init.js"></script>
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/theme.js"></script>
 <!-- Custom Theme Settings -->
-<script>
+<!-- <script>
   userSettings = {
     Layout: "horizontal", // vertical | horizontal
     SidebarType: "full", // full | mini-sidebar
@@ -15,7 +15,7 @@
     ColorTheme: "Blue_Theme", // Blue_Theme | Aqua_Theme | Purple_Theme | Green_Theme | Cyan_Theme | Orange_Theme
     cardBorder: false, // true | false
   };
-</script>
+</script> -->
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.min.js"></script>
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/sidebarmenu.js"></script>
 
@@ -44,96 +44,79 @@
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/select2/dist/js/select2.min.js"></script>
 <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/forms/select2.init.js"></script>
 
+<!-- SweetAlert2 -->
+<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/sweetalert2/dist/sweetalert2.min.js"></script>
+
 <script>
-    var table = new DataTable('#daftar_item', {
-    ajax: 'daftar-item/json',
+  var table = new DataTable('#daftar_admin', {
+    ajax: 'kelola-admin/json',
     processing: true,
     serverSide: true,
-    // autoWidth: false,
-    // columns: [
-    //   {data: 'kodeitem', width:'80px'},
-    //   {data: 'namaitem', width:'260px'},
-    //   {data: 'jenis', width:'80px'},
-    //   {data: 'satuan', width:'80px'},
-    //   {data: 'merek', width:'170px'},
-    //   {data: 'hargajual', width:'170px'},
-    // ],
     columns: [
-      {data: 'kodeitem'},
-      {data: 'namaitem'},
-      {data: 'ketjenis'},      
-      {data: 'ketmerek'},
-      {data: 'satuan'},
-      {data: 'hargajual',
-        render: $.fn.dataTable.render.number('.', ',', 0)
-      },
-      {data: 'stok', defaultContent: 'N/A',
-        render: $.fn.dataTable.render.number('.', ',', 0)
-      },
+      {data: 'id'},
+      {data: 'nama'},
+      {data: 'username'},      
+      {data: 'status'},
+      {data: 'id',
+        render: function (data, type, row) {
+          var deleteUrl = "{{ route('kelola_admin.destroy', ':data_id') }}"
+          deleteUrl = deleteUrl.replace(':data_id', row.id);
+
+          return `<button class="btn btn-warning" onclick="fillData(${row.id})">Edit</button>
+
+                  <form id="delete-form-${row.id}" action="${deleteUrl}" method="POST" style="display:none;">
+                      @csrf
+                      @method('DELETE')
+                  </form>
+                  <button class="btn btn-danger" onclick="confirmDelete(${row.id})">Delete</button>`;
+        }
+      }
     ],
-    // fixedColumns: true,
     responsive: true,
     order: [],
-    // dom: 'fltip'
-    // ordering: false,
   });
 
-  //
-  // Loading array data
-  //
-  var dataJenis = [];
-  var dataMerek = [];
-
-  $.getJSON("daftar-item/filter_json", function(data) {
-    dataJenis = data.jenis;
-    dataMerek = data.merek;
-  })
-  .done(function() {
-    $("#select2-jenis").select2({
-      dropdownParent: $('#filter-modal'),
-      data: dataJenis,
+  function fillData(id) {
+    // Perform the AJAX request
+    $.ajax({
+        url: 'kelola-admin/json/' + id, // Server-side script URL
+        type: 'GET', // Or 'POST'
+        dataType: 'json', // Expecting JSON response
+        success: function(data) {
+            // On success, populate the modal fields with the received data
+            $('#id').val(data.id);
+            $('#nama').val(data.nama);
+            $('#username').val(data.username);
+            $('#status').val(data.status);
+            
+            // Show the modal (if using Bootstrap JS)
+            $('#edit-modal').modal('show');
+        },
+        error: function(xhr, status, error) {
+            // Handle errors
+            // console.error("AJAX error:", status, error);
+            // alert("An error occurred while fetching details.");
+        }
     });
-
-    $("#select2-merek").select2({
-      dropdownParent: $('#filter-modal'),
-      data: dataMerek,
-    });
-  });
-
-
-
-  // $("#select2-merek").select2({
-  //   dropdownParent: $('#filter-modal'),
-  //   data: data,
-  // });
-
-  function filterData() {
-    var jenisVal = $("#select2-jenis option:selected").text();
-    var merekVal = $("#select2-merek option:selected").text();
-    
-    table
-      .column(2)
-      .search(jenisVal)
-      .draw();
-
-    table
-      .column(3)
-      .search(merekVal)
-      .draw();
-
-    $('#filter-modal').modal('hide');
   }
 
-  function resetFilter() {
-    $("#select2-jenis").val('').change();
-    $("#select2-merek").val('').change();
-
-    filterData();
-  }  
-
-  if ($("#stok").is(":hidden")) {
-    table.column(6).visible(false);
-  } else {
-    table.column(6).visible(true);
+  function confirmDelete(id) {
+    Swal.fire(
+    {
+      title: "Are you sure?",
+      text: "You will not be able to recover this imaginary file!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, delete it!",
+      closeOnConfirm: false,
+    }
+    ).then((result) => {
+      if (result.isConfirmed) {
+        // Submit the form with the corresponding ID
+        document.getElementById('delete-form-' + id).submit();
+      }
+    });
   }
+  
 </script>

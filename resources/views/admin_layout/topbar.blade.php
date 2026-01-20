@@ -199,9 +199,9 @@
             </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <div class="d-flex align-items-center justify-content-between">
-                <a href="javascript:void(0)" class="nav-link nav-icon-hover-bg rounded-circle mx-0 ms-n1 d-flex d-lg-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="offcanvasWithBothOptions">
+                <!-- <a href="javascript:void(0)" class="nav-link nav-icon-hover-bg rounded-circle mx-0 ms-n1 d-flex d-lg-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="offcanvasWithBothOptions">
                   <i class="ti ti-align-justified fs-7"></i>
-                </a>
+                </a> -->
                 <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
                   <!-- ------------------------------- -->
                   <!-- start language Dropdown -->
@@ -254,12 +254,12 @@
                   <!-- ------------------------------- -->
                   <!-- start shopping cart Dropdown -->
                   <!-- ------------------------------- -->
-                  <li class="nav-item nav-icon-hover-bg rounded-circle">
+                  <!-- <li class="nav-item nav-icon-hover-bg rounded-circle">
                     <a class="nav-link position-relative" href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                       <i class="ti ti-basket"></i>
                       <span class="popup-badge rounded-pill bg-danger text-white fs-2">2</span>
                     </a>
-                  </li>
+                  </li> -->
                   <!-- ------------------------------- -->
                   <!-- end shopping cart Dropdown -->
                   <!-- ------------------------------- -->
@@ -797,9 +797,9 @@
             </a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <div class="d-flex align-items-center justify-content-between px-0 px-xl-8">
-                <a href="javascript:void(0)" class="nav-link round-40 p-1 ps-0 d-flex d-xl-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="offcanvasWithBothOptions">
+                <!-- <a href="javascript:void(0)" class="nav-link round-40 p-1 ps-0 d-flex d-xl-none align-items-center justify-content-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilenavbar" aria-controls="offcanvasWithBothOptions">
                   <i class="ti ti-align-justified fs-7"></i>
-                </a>
+                </a> -->
                 <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
                   <!-- ------------------------------- -->
                   <!-- start language Dropdown -->
@@ -852,12 +852,12 @@
                   <!-- ------------------------------- -->
                   <!-- start shopping cart Dropdown -->
                   <!-- ------------------------------- -->
-                  <li class="nav-item nav-icon-hover-bg rounded-circle">
+                  <!-- <li class="nav-item nav-icon-hover-bg rounded-circle">
                     <a class="nav-link position-relative" href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                       <i class="ti ti-basket"></i>
                       <span class="popup-badge rounded-pill bg-danger text-white fs-2">2</span>
                     </a>
-                  </li>
+                  </li> -->
                   <!-- ------------------------------- -->
                   <!-- end shopping cart Dropdown -->
                   <!-- ------------------------------- -->

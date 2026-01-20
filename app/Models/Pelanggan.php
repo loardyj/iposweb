@@ -3,10 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Hash;
 
 class Pelanggan extends Authenticatable
 {
@@ -21,6 +22,30 @@ class Pelanggan extends Authenticatable
         return Hash::make($this->telepon);
     }
 
+    protected function kodeKantor(): Attribute
+    {
+        $kantor = 'UTM';
+
+        if (str_contains($this->nama, '-')) { 
+            $kantor = explode('-', $this->nama);
+            $kantor = array_pop($kantor);
+            $kantor = str_replace(' ', '', $kantor);
+        }
+
+        return Attribute::make(
+            get: fn () => $kantor,
+        );
+    }
+
+    protected function namaKantor(): Attribute
+    {
+        $namaKantor = Kantor::where('kodekantor', $this->kodeKantor)->value('namakantor');
+
+        return Attribute::make(
+            get: fn () => $namaKantor,
+        );
+    }
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
@@ -30,9 +55,9 @@ class Pelanggan extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'telepon',
+        // 'name',
+        // 'email',
+        // 'telepon',
     ];    
 
     /**

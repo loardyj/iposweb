@@ -11,9 +11,9 @@
                   <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a class="text-muted text-decoration-none" href="../main/index.html">Order</a>
+                        <a class="text-muted text-decoration-none" href="../main/index.html">Cabang</a>
                       </li>
-                      <li class="breadcrumb-item" aria-current="page">Daftar Item</li>
+                      <li class="breadcrumb-item" aria-current="page">{{ Auth::user()->namaKantor }}</li>
                     </ol>
                   </nav>
                 </div>
@@ -96,11 +96,11 @@
                         <th>Merek</th>
                         <th>Satuan</th>
                         <th>Harga</th>
+                        <th id="stok" hidden>Stok</th>
                       </tr>
                       <!-- end row -->
                     </thead>
-                    <tbody>
-                      
+                    <tbody>                      
                     </tbody>
                     <tfoot>
                       <!-- start row -->

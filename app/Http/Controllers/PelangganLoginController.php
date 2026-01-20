@@ -11,7 +11,7 @@ class PelangganLoginController extends Controller
     public function index()
     {
         if(Auth::guard('pelangganweb')->check()){
-            return Redirect::to('dashboard');
+            return to_route('dashboard');
         } else {
             return view('login.index_baru');
         }        
