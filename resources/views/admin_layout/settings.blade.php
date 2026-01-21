@@ -3,10 +3,10 @@
     document.documentElement.setAttribute("data-color-theme", e);
   }
 </script>
-      <button class="btn btn-primary p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="tombolCart">
+      <!-- <button class="btn btn-primary p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="tombolCart">
         <i class="icon ti ti-basket fs-7"></i>
         <span class="popup-badge rounded-pill bg-danger text-white fs-2">2</span>
-      </button>
+      </button> -->
 
       <div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="d-flex align-items-center justify-content-between p-3 border-bottom">

@@ -30,8 +30,8 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/main/index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
-                  <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" class="dark-logo" alt="Logo-Dark" />
-                  <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
+                  <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="dark-logo" alt="Logo-Dark" />
+                  <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="light-logo" alt="Logo-light" />
                 </a>
                 <!-- <div class="row">
                   <div class="col-6 mb-2 mb-sm-0">

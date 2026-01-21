@@ -28,8 +28,8 @@
         <div class="row">
           <div class="col-xl-7 col-xxl-8">
             <a href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/main/index.html" class="text-nowrap logo-img d-block px-4 py-9 w-100">
-              <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" class="dark-logo" alt="Logo-Dark" />
-              <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
+              <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="dark-logo" alt="Logo-Dark" />
+              <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="light-logo" alt="Logo-light" />
             </a>
             <div class="d-none d-xl-flex align-items-center justify-content-center h-n80">
               <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/backgrounds/login-security.svg" alt="modernize-img" class="img-fluid" width="500">

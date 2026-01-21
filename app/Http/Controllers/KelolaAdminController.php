@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Pengaturan;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -60,6 +61,7 @@ class KelolaAdminController extends Controller
         // 2. Find the item
         $data = User::findOrFail($request->id);
 
+        // skip null
         $request = array_filter($request->all());
 
         // 3. Update the item attributes

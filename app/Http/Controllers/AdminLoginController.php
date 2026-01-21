@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengaturan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
-class AdminLoginController extends Controller
-{
+class AdminLoginController extends Controller 
+{    
     public function index()
-    {
-        if(Auth::guard('web')->check()){
+    {      
+        if(Auth::guard('adminweb')->check()){
             return to_route('admin_dashboard');
-        } else {
+        } else {            
             return view('login_admin.index');
         }        
     }
@@ -24,23 +24,30 @@ class AdminLoginController extends Controller
             // 'password' => ['required'],
         ]);
 
-        if (Auth::guard('web')->attempt(['username' => $credentials['username'], 'password' => $request['password']])) {
-            $request->session()->regenerate();
-            return to_route('admin_dashboard');
+        $errorMsg = 'The provided credentials do not match our records.';
+
+        if (Auth::guard('adminweb')->attempt(['username' => $credentials['username'], 'password' => $request['password']])) {            
+            if (Auth::guard('adminweb')->user()->status == 'Aktif') {
+                $request->session()->regenerate();
+                return to_route('admin_dashboard');
+            } else {
+                Auth::logout();
+                $errorMsg = 'Akun anda tidak aktif!';
+            }            
         }
  
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ])->onlyInput('username');
+            'error' => $errorMsg,
+        ]);
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('adminweb')->logout();
  
         // Invalidate session
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        // $request->session()->invalidate();
+        // $request->session()->regenerateToken();
  
         return to_route('url_admin_login')->with('success', 'You have been logged out.');
     }

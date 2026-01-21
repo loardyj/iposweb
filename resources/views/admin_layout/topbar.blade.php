@@ -190,8 +190,8 @@
 
             <div class="d-block d-lg-none py-4">
               <a href="{{ route('home') }}" class="text-nowrap logo-img">
-                <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" class="dark-logo" alt="Logo-Dark" />
-                <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
+                <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="90px" height="30px" class="dark-logo" alt="Logo-Dark" />
+                <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="90px" height="30px" class="light-logo" alt="Logo-light" />
               </a>
             </div>
             <a class="navbar-toggler nav-icon-hover-bg rounded-circle p-0 mx-0 border-0" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -362,11 +362,11 @@
                           <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="80" height="80" alt="modernize-img" />
                           <div class="ms-3">
                             <h5 class="mb-1 fs-3">{{ Auth::user()->nama }}</h5>
-                            <span class="mb-1 d-block">{{ Auth::user()->nama_npwp }}</span>
+                            <!-- <span class="mb-1 d-block">{{ Auth::user()->nama_npwp }}</span>
                             <span class="mb-1 d-block"></span>
                             <p class="mb-0 d-flex align-items-center gap-2">
                               <i class="ti ti-star fs-4"></i> {{ Auth::user()->kgrup }}
-                            </p>
+                            </p> -->
                           </div>
                         </div>
                         <!-- <div class="message-body">
@@ -412,7 +412,7 @@
                               </div>
                             </div>
                           </div> -->
-                          <a href="logout " class="btn btn-outline-primary">Log Outs</a>
+                          <a href="logout " class="btn btn-outline-primary">Log Out</a>
                         </div>
                       </div>
                     </div>
@@ -604,8 +604,8 @@
               </li>
               <li class="nav-item d-none d-xl-block">
                 <a href="{{ route('home') }}" class="text-nowrap nav-link">
-                  <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" class="dark-logo" width="180" alt="modernize-img" />
-                  <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/light-logo.svg" class="light-logo" width="180" alt="modernize-img" />
+                  <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" class="dark-logo" width="180" alt="modernize-img" />
+                  <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" class="light-logo" width="180" alt="modernize-img" />
                 </a>
               </li>
               <!-- <li class="nav-item nav-icon-hover-bg rounded-circle d-none d-xl-flex">
@@ -787,7 +787,7 @@
             </ul>
             <div class="d-block d-xl-none">
               <a href="{{ route('home') }}" class="text-nowrap nav-link">
-                <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" width="180" alt="modernize-img" />
+                <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180" alt="modernize-img" />
               </a>
             </div>
             <a class="navbar-toggler nav-icon-hover-bg rounded-circle p-0 mx-0 border-0" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -960,11 +960,11 @@
                           <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="80" height="80" alt="modernize-img" />
                           <div class="ms-3">
                             <h5 class="mb-1 fs-3">{{ Auth::user()->nama }}</h5>
-                            <span class="mb-1 d-block">{{ Auth::user()->nama_npwp }}</span>
+                            <!-- <span class="mb-1 d-block">{{ Auth::user()->nama_npwp }}</span>
                             <span class="mb-1 d-block"></span>
                             <p class="mb-0 d-flex align-items-center gap-2">
                               <i class="ti ti-star fs-4"></i> {{ Auth::user()->kgrup }}
-                            </p>
+                            </p> -->
                           </div>
                         </div>
                         <!-- <div class="message-body">

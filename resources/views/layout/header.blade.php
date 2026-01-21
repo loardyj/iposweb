@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="{{ url('/public/uploads/logo') . '/' . config('settings.favicon') }}" />
 
   <!-- Core Css -->
   <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
 
-  <title>Modernize Bootstrap Admin</title>
+  <title>{{ config('settings.nama_perusahaan') }}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- Datatables -->

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Pengaturan;
 use Illuminate\Support\Str;
 
 return [
@@ -80,7 +81,7 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
-        ],
+        ],        
 
         'pgsql' => [
             'driver' => 'pgsql',
@@ -90,6 +91,21 @@ return [
             'database' => env('DB_DATABASE_2', 'laravel'),
             'username' => env('DB_USERNAME_2', 'root'),
             'password' => env('DB_PASSWORD_2', ''),
+            'charset' => env('DB_CHARSET', 'utf8'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'search_path' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'dynamic' => [
+            'driver' => 'pgsql',
+            'url' => env('DB_URL'),
+            'host' => null,
+            'port' => null,
+            'database' => null,
+            'username' => null,
+            'password' => null,
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,

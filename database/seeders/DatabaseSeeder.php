@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Pengaturan;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,5 +21,22 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin',
             'password' => 'admin',
         ]);
+
+        Pengaturan::factory()
+                    ->count(4)
+                    ->sequence(
+            [   'kode' => 'nama_perusahaan',
+                'value' => 'Nama Perusahaan'
+            ],
+            [   'kode' => 'logo',
+                'value' => 'logo.png'
+            ],
+            [   'kode' => 'favicon',
+                'value' => 'favicon.png'
+            ],
+            [   'kode' => 'tampil_stok',
+                'value' => 'Y'
+            ],
+        )->create();
     }
 }

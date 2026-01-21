@@ -31,11 +31,13 @@
                 <div class="card-body position-relative">
                   <div class="row">
                     <div class="col-sm-7">
-                      <h3 class="fw-semibold mb-0 fs-5">Welcome back,</h3>
+                      <h3 class="fw-semibold mb-0 fs-5">Welcome to Admin Panel</h3>
                       <div class="d-flex align-items-center py-9 mx-0 border-bottom">
                         <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="140" height="140" alt="modernize-img" />
                         <div class="ms-3">
-                          <h5 class="mb-1 fs-3">{{ Auth::user()->nama }}</h5>
+                          <h5 class="mb-1 fs-3">Logged in :</h5>
+                          <h3 class="fw-semibold mb-0 fs-5">{{ Auth::user()->nama }}</h3>
+                          <!-- <h5 class="mb-1 fs-3">{{ Auth::user()->nama }}</h5>
                           <span class="mb-1 d-block">{{ Auth::user()->nama_npwp }}</span>
                           <span class="mb-1 d-block">{{ Auth::user()->alamat }}</span>
                           <span class="mb-1 d-block">{{ Auth::user()->kota }}</span>
@@ -43,7 +45,7 @@
                           <span class="mb-1 d-block"></span>
                           <p class="mb-0 d-flex align-items-center gap-2">
                             <i class="ti ti-star fs-4"></i> {{ Auth::user()->kgrup }}
-                          </p>
+                          </p> -->
                         </div>
                       </div>
                       <div class="d-flex align-items-center">
@@ -60,13 +62,13 @@
                       </div>
                     </div>
                     <div class="col-sm-5">
-                      <div class="d-flex align-items-center">
+                      <!-- <div class="d-flex align-items-center">
                         <div class="pe-4 border-muted border-opacity-10">
                           <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">Rp 2,340<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i>
                           </h3>
                           <p class="mb-0 text-dark">This Month Order</p>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="welcome-bg-img mb-n7 text-end">
                         <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/backgrounds/welcome-bg.svg" alt="modernize-img" class="img-fluid">
                       </div>

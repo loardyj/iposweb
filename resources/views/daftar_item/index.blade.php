@@ -95,8 +95,8 @@
                         <th>Jenis</th>
                         <th>Merek</th>
                         <th>Satuan</th>
-                        <th>Harga</th>
-                        <th id="stok" hidden>Stok</th>
+                        <th>Harga</th>                        
+                        <th id="stok" {{ (config('settings.tampil_stok') == 'Tidak') ? 'hidden' : '' }}>Stok</th>
                       </tr>
                       <!-- end row -->
                     </thead>

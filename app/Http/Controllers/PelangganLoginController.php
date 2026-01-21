@@ -26,7 +26,7 @@ class PelangganLoginController extends Controller
 
         if (Auth::guard('pelangganweb')->attempt(['kode' => $credentials['username'], 'password' => $request['password'] ?? '', 'tipe' => 'PL'])) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return to_route('dashboard');;
         }
  
         return back()->withErrors([
@@ -36,11 +36,11 @@ class PelangganLoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        Auth::guard('pelangganweb')->logout();
  
         // Invalidate session
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        // $request->session()->invalidate();
+        // $request->session()->regenerateToken();
  
         return redirect('/login')->with('success', 'You have been logged out.');
     }
