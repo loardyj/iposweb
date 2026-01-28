@@ -87,7 +87,7 @@
         render: function (data, type, row) {
           var hargajual = "Rp"+Intl.NumberFormat('id-ID').format(row.hargajual);
           var keterangan = row.namaitem + '<br>@ ' + hargajual;
-          return `<a href="#" onclick="addToCart('${row.kodeitem}', '${keterangan}')">${data}</a>`;
+          return `<a href="##" onclick="addToCart('${row.kodeitem}', '${keterangan}')">${data}</a>`;
         }
       }
     ],
