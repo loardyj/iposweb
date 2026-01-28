@@ -1,5 +1,7 @@
 @extends('admin_layout.master')
 
+@section('page_title', '- Dashboard Admin')
+
 @section('content')
 <div class="body-wrapper">
         <div class="container-fluid">

@@ -26,12 +26,12 @@ class AdminLoginController extends Controller
 
         $errorMsg = 'The provided credentials do not match our records.';
 
-        if (Auth::guard('adminweb')->attempt(['username' => $credentials['username'], 'password' => $request['password']])) {            
+        if (Auth::guard('adminweb')->attempt(['username' => $credentials['username'], 'password' => $request['password']])) {    
             if (Auth::guard('adminweb')->user()->status == 'Aktif') {
                 $request->session()->regenerate();
                 return to_route('admin_dashboard');
             } else {
-                Auth::logout();
+                Auth::guard('adminweb')->logout();
                 $errorMsg = 'Akun anda tidak aktif!';
             }            
         }

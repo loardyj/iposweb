@@ -3,6 +3,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="csrf-token" content="{{ csrf_token() }}"> {{-- Include CSRF Token --}}
 
   <!-- Favicon icon-->
   <link rel="shortcut icon" type="image/png" href="{{ url('/public/uploads/logo') . '/' . config('settings.favicon') }}" />
@@ -10,7 +11,7 @@
   <!-- Core Css -->
   <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
 
-  <title>{{ config('settings.nama_perusahaan') }}</title>
+  <title>{{ config('settings.nama_perusahaan') }} @yield('page_title')</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- Datatables -->
@@ -19,6 +20,9 @@
 
   <!-- Select2 -->
   <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/select2/dist/css/select2.min.css">
+
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/sweetalert2/dist/sweetalert2.min.css">
 
   <style>
     tr td {
@@ -48,6 +52,19 @@
     .nav-link.active {
       transition: all .1s ease-in-out;
       color: var(--bs-primary) !important;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    .qty::-webkit-outer-spin-button,
+    .qty::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    .qty {
+      -moz-appearance: textfield;
+      appearance: textfield; /* Standard property for newer browsers */
     }
   </style>
 </head>

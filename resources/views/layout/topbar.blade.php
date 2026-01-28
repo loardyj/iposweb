@@ -257,7 +257,7 @@
                   <li class="nav-item nav-icon-hover-bg rounded-circle">
                     <a class="nav-link position-relative" href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                       <i class="ti ti-basket"></i>
-                      <span class="popup-badge rounded-pill bg-danger text-white fs-2">2</span>
+                      <span class="popup-badge rounded-pill bg-danger text-white fs-2 keranjang_item"></span>
                     </a>
                   </li>
                   <!-- ------------------------------- -->
@@ -855,7 +855,7 @@
                   <li class="nav-item nav-icon-hover-bg rounded-circle">
                     <a class="nav-link position-relative" href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                       <i class="ti ti-basket"></i>
-                      <span class="popup-badge rounded-pill bg-danger text-white fs-2">2</span>
+                      <span class="popup-badge rounded-pill bg-danger text-white fs-2 keranjang_item"></span>
                     </a>
                   </li>
                   <!-- ------------------------------- -->

@@ -14,7 +14,7 @@
   <!-- Core Css -->
   <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
 
-  <title>Admin LOGIN</title>
+  <title>{{ config('settings.nama_perusahaan') }} - Login Admin</title>
 </head>
 
 <body>

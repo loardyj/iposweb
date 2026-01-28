@@ -5,7 +5,7 @@
 </script>
       <button class="btn btn-primary p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="tombolCart">
         <i class="icon ti ti-basket fs-7"></i>
-        <span class="popup-badge rounded-pill bg-danger text-white fs-2">2</span>
+        <span class="popup-badge rounded-pill bg-danger text-white fs-2 keranjang_item"></span>
       </button>
 
       <div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">

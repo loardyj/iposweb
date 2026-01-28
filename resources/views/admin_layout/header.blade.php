@@ -10,7 +10,7 @@
   <!-- Core Css -->
   <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
 
-  <title>{{ config('settings.nama_perusahaan') }}</title>
+  <title>{{ config('settings.nama_perusahaan') }} @yield('page_title')</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- Datatables -->

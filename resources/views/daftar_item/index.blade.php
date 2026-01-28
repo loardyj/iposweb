@@ -1,5 +1,7 @@
 @extends('layout.master')
 
+@section('page_title', '- Daftar Item')
+
 @section('content')
 <div class="body-wrapper">
         <div class="container-fluid">
@@ -73,9 +75,14 @@
                   </div>
                   <!-- /.modal -->
 
+                  <div class="alert alert-info text-info alert-dismissible fade show" role="alert">
+                      <button type="button" class="btn-close btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      <strong>Info - </strong> Silahkan Klik Nama Item yang Akan Di-Order!
+                  </div>
+
                   <button type="button" class="btn mb-1 bg-primary-subtle text-primary px-4 fs-4 " data-bs-toggle="modal" data-bs-target="#filter-modal">
                       Filter
-                  </button>
+                  </button>                  
 
                   <br><br>
 

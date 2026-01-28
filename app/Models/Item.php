@@ -12,4 +12,9 @@ class Item extends Model
     protected $primaryKey = 'kodeitem';
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function harga_jual()
+    {
+        return $this->hasMany(HargaJual::class, 'kodeitem', 'kodeitem');
+    }
 }

@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
                 'value' => 'favicon.png'
             ],
             [   'kode' => 'tampil_stok',
-                'value' => 'Y'
+                'value' => 'Ya'
             ],
         )->create();
     }

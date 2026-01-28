@@ -1,5 +1,7 @@
 @extends('layout.master')
 
+@section('page_title', '- Dashboard Pelanggan')
+
 @section('content')
 <div class="body-wrapper">
         <div class="container-fluid">
@@ -62,9 +64,9 @@
                     <div class="col-sm-5">
                       <div class="d-flex align-items-center">
                         <div class="pe-4 border-muted border-opacity-10">
-                          <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">Rp 2,340<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i>
+                          <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">Rp {{ number_format($omset, 0, ',', '.') }}<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i>
                           </h3>
-                          <p class="mb-0 text-dark">This Month Order</p>
+                          <p class="mb-0 text-dark">Total Order Bulan Ini</p>
                         </div>
                       </div>
                       <div class="welcome-bg-img mb-n7 text-end">

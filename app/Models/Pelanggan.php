@@ -46,6 +46,15 @@ class Pelanggan extends Authenticatable
         );
     }
 
+    protected function levelHarga(): Attribute
+    {
+        $levelHarga = GrupPelanggan::where('kgrup', $this->kgrup)->value('levelharga');
+
+        return Attribute::make(
+            get: fn () => $levelHarga,
+        );
+    }
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
