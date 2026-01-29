@@ -27,7 +27,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link {{ request()->is('admin/dashboard') ? 'active' : '' }}" href="{{ route('admin_dashboard') }}" id="get-url" aria-expanded="false">
                 <span>
-                  <i class="ti ti-aperture"></i>
+                  <i class="ti ti-home"></i>
                 </span>
                 <span class="hide-menu">Dashboard</span>
               </a>
@@ -104,7 +104,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link {{ request()->is('kelola-admin') ? 'active' : '' }}" href="{{ route('kelola_admin') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-calendar"></i>
+                  <i class="ti ti-users"></i>
                 </span>
                 <span class="hide-menu">Kelola Admin</span>
               </a>
@@ -112,7 +112,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link {{ request()->is('pengaturan') ? 'active' : '' }}" href="{{ route('pengaturan') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-calendar"></i>
+                  <i class="ti ti-settings"></i>
                 </span>
                 <span class="hide-menu">Pengaturan</span>
               </a>
@@ -245,8 +245,8 @@
               <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="modernize-img" />
             </div>
             <div class="john-title">
-              <h6 class="mb-0 fs-4 fw-semibold">Logout</h6>
-              <span class="fs-2">{{ Auth::user()->nama }}</span>
+              <h6 class="mb-0 fs-4 fw-semibold">{{ Auth::user()->nama }}</h6>
+              <span class="fs-2">Logout</span>
             </div>
             <form action="{{ route('admin_logout') }}" method="get">
               @csrf

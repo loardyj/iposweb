@@ -37,6 +37,11 @@ class DaftarItemController extends Controller
                 ->orderBy('tbl_item.merek', 'asc')
                 ->orderBy('tbl_item.namaitem', 'asc')
                 ->get();
+
+        // $model = Item::select(DB::raw('
+        //             select "tbl_item"."kodeitem", "tbl_item"."namaitem", "tbl_itemjenis"."ketjenis", "tbl_item"."satuan", "tbl_itemmerek"."ketmerek", TRUNC(tbl_itemhj.hargajual, 0) hargajual,
+        //             "tbl_itemstok"."stok" from "tbl_item" inner join "tbl_itemhj" on "tbl_item"."kodeitem" = "tbl_itemhj"."kodeitem" inner join "tbl_supelgrup" on "tbl_itemhj"."level" = "tbl_supelgrup"."levelharga" inner join "tbl_itemjenis" on "tbl_item"."jenis" = "tbl_itemjenis"."jenis" inner join "tbl_itemmerek" on "tbl_item"."merek" = "tbl_itemmerek"."merek" left join "tbl_itemstok" on "tbl_item"."kodeitem" = "tbl_itemstok"."kodeitem" and "tbl_itemstok"."kantor" = ? where "tbl_supelgrup"."kgrup" = ? and "tbl_item"."statusjual" = ? and "tbl_itemhj"."hargajual" > ? order by "tbl_itemstok"."stok" asc, "tbl_item"."jenis" asc, "tbl_item"."merek" asc, "tbl_item"."namaitem" asc'))
+        // dd($model);
  
         return DataTables::of($model)->toJson();
     }

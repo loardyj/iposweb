@@ -25,9 +25,9 @@
             <!-- Dashboard -->
             <!-- ---------------------------------- -->
             <li class="sidebar-item">
-              <a class="sidebar-link {{ request()->is('/') ? 'active' : '' }}" href="" id="get-url" aria-expanded="false">
+              <a class="sidebar-link {{ request()->is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}" id="get-url" aria-expanded="false">
                 <span>
-                  <i class="ti ti-aperture"></i>
+                  <i class="ti ti-home"></i>
                 </span>
                 <span class="hide-menu">Dashboard</span>
               </a>
@@ -102,9 +102,9 @@
               <span class="hide-menu">ORDER</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link {{ request()->is('daftar-item') ? 'active' : '' }}" href="daftar-item" aria-expanded="false">
+              <a class="sidebar-link {{ request()->is('daftar-item') ? 'active' : '' }}" href="{{ route('daftar_item') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-calendar"></i>
+                  <i class="ti ti-clipboard-list"></i>
                 </span>
                 <span class="hide-menu">Daftar Item</span>
               </a>
@@ -121,7 +121,7 @@
             <!-- ---------------------------------- -->
             <!-- OTHER -->
             <!-- ---------------------------------- -->
-            <li class="nav-small-cap">
+            <!-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">OTHER</span>
             </li>
@@ -235,7 +235,7 @@
                 </span>
                 <span class="hide-menu">Manajemen User</span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </nav>
 
@@ -245,12 +245,12 @@
               <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="modernize-img" />
             </div>
             <div class="john-title">
-              <h6 class="mb-0 fs-4 fw-semibold">Mathew</h6>
-              <span class="fs-2">Designer</span>
+              <h6 class="mb-0 fs-4 fw-semibold">{{ Auth::user()->nama }}</h6>
+              <span class="fs-2">Logout</span>
             </div>
-            <form action="logout" method="post">
+            <form action="{{ route('logout') }}" method="get">
               @csrf
-              <button type="submit" class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="logout">
+              <button type="submit" class="border-0 bg-transparent text-primary ms-auto" tabindex="0" type="button" aria-label="logout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Logout">
                 <i class="ti ti-power fs-6"></i>
               </button>
             </form>

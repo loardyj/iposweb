@@ -27,10 +27,11 @@ Route::middleware(['auth:pelangganweb'])->group(function () {
     Route::get('/daftar-item/json', [DaftarItemController::class, 'json'])->name('daftar_item_json');
     Route::get('/daftar-item/filter_json', [DaftarItemController::class, 'filter_json'])->name('daftar_item_filter_json');
     Route::get('/keranjang/json', [KeranjangController::class, 'json'])->name('keranjang.json');
+    Route::post('/keranjang/update', [KeranjangController::class, 'update'])->name('keranjang.update');
+    Route::post('/keranjang/delete', [KeranjangController::class, 'destroy'])->name('keranjang.destroy');
+    Route::post('/keranjang/reset', [KeranjangController::class, 'reset'])->name('keranjang.reset');
+    Route::get('/keranjang/toWA', [KeranjangController::class, 'toWA'])->name('keranjang.toWA');
 });
-
-Route::post('/keranjang/update', [KeranjangController::class, 'update'])->name('keranjang.update')->withoutMiddleware([VerifyCsrfToken::class]);
-Route::post('/keranjang/delete', [KeranjangController::class, 'destroy'])->name('keranjang.destroy')->withoutMiddleware([VerifyCsrfToken::class]);
 
 Route::get('/admin', function () {
     return redirect('/admin/login');

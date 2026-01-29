@@ -52,8 +52,8 @@
       opacity: 1; /* Ensures consistency */
     }
 
-    .brand-logo {
-      padding: 24px 24px;
-    }
+    /* .brand-logo {
+      padding: 0px 24px;
+    } */
   </style>
 </head>

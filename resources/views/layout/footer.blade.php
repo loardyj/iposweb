@@ -157,14 +157,15 @@
     table.column(6).visible(true);
   }
 
-  function insertCart(isInsert, kode, qty) {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: "btn btn-success",
-        cancelButton: "me-6 btn btn-danger",
-      },
-      buttonsStyling: false,
-    });
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success",
+      cancelButton: "me-6 btn btn-danger",
+    },
+    buttonsStyling: false,
+  });
+  
+  function insertCart(isInsert, kode, qty) { 
 
     var itemObj = {
         "isInsert": isInsert,
@@ -194,7 +195,13 @@
             // console.log('Success:', response);
         },
         error: function(xhr, status, error) {
-            // console.error('Error:', xhr.responseText);
+          swalWithBootstrapButtons.fire(
+              "Error!",
+              "Terjadi Kesalahan!",
+              "error"
+            );
+          showCart();
+          // console.error('Error:', xhr.responseText);
         }
     });
   }
@@ -222,7 +229,7 @@
             <button class="btn border-0 round-40 p-0 bg-success-subtle text-success kurang insertBtn fs-5" type="button" onclick="updateQty(this)">
               -
             </button>
-            <input type="number" class="form-control round-40 bg-transparent text-muted fs-5 border-0 text-center qty" id="insertQty" value="1"/>
+            <input type="number" class="form-control round-40 bg-transparent text-muted fs-5 border-0 text-center qty" id="insertQty" value="1" min="1"/>
             <button class="btn text-success bg-success-subtle p-0 round-40 border-0 tambah insertBtn fs-5" type="button" onclick="updateQty(this)">
               +
             </button>
@@ -267,6 +274,10 @@
     $.getJSON('keranjang/json', function(data) {
       // 'data' is the JavaScript array of objects returned by getJSON
       if (data[0].details) {
+        // if (data[0].details.length <= 0) {
+        //   $('#linkWA').attr("href", "https://www.newurl.com");
+        // }
+
         var total = 0;
         var maxId = 0;
         $.each(data[0].details, function(index, item) {
@@ -312,7 +323,7 @@
                       <button class="btn border-0 round-20 p-0 bg-success-subtle text-success kurang" type="button" id="add1" onclick="updateQty(this)">
                         -
                       </button>
-                      <input type="number" class="form-control round-20 bg-transparent text-muted fs-2 border-0 text-center qty qty_keranjang" value="` + qty + `"/>
+                      <input type="number" class="form-control round-20 bg-transparent text-muted fs-2 border-0 text-center qty qty_keranjang" value="` + qty + `" min="1"/>
                       <button class="btn text-success bg-success-subtle p-0 round-20 border-0 tambah" type="button" id="addo2" onclick="updateQty(this)">
                         +
                       </button>
@@ -395,6 +406,37 @@
         }
       }      
     }
+  }
+
+  function resetCart() {
+    Swal.fire({
+      title: "Konfirmasi",
+      text: "Yakin reset keranjang?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Ya",
+      closeOnConfirm: false,
+    }
+    ).then((result) => {
+      if (result.isConfirmed) {        
+        $.ajax({
+          url: 'keranjang/reset', // The URL defined in your Laravel routes
+          method: 'POST',
+          headers: {
+              'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') // Pass the CSRF token
+          },
+          success: function(response) {
+              showCart();
+          },
+          error: function(xhr, status, error) {
+              // console.error('Error:', xhr.responseText);
+          }
+        });
+      } else {
+        
+      }
+    });    
   }
 
   function deleteCartItem(id) {

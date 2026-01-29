@@ -1,7 +1,8 @@
 <div class="offcanvas offcanvas-end shopping-cart" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header justify-content-between py-4">
+        <a href="##" onclick="resetCart()" class="btn btn-danger" id="linkWA">Reset</a>
         <h5 class="offcanvas-title fs-5 fw-semibold" id="offcanvasRightLabel">
-          Keranjang Order
+          Keranjang
         </h5>
         <span class="badge bg-primary rounded-4 px-3 py-1 lh-sm" id="keranjang_item">0 item</span>
       </div>
@@ -82,7 +83,7 @@
               <span class="text-dark fw-semibold fs-3" id="keranjang_total">Rp0</span>
             </div>
           </div>
-          <a href="../main/eco-checkout.html" class="btn btn-outline-primary w-100">Go to shopping cart</a>
+          <a href="{{ route('keranjang.toWA') }}" target="_blank" class="btn btn-primary w-100" id="linkWA">Kirim Order Ke WA</a>
         </div>
       </div>
     </div>

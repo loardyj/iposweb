@@ -39,19 +39,28 @@ class Pelanggan extends Authenticatable
 
     protected function namaKantor(): Attribute
     {
-        $namaKantor = Kantor::where('kodekantor', $this->kodeKantor)->value('namakantor');
+        $value = Kantor::where('kodekantor', $this->kodeKantor)->value('namakantor');
 
         return Attribute::make(
-            get: fn () => $namaKantor,
+            get: fn () => $value,
+        );
+    }
+
+    protected function WAKantor(): Attribute
+    {
+        $value = Kantor::where('kodekantor', $this->kodeKantor)->value('whatsapp');
+
+        return Attribute::make(
+            get: fn () => $value,
         );
     }
 
     protected function levelHarga(): Attribute
     {
-        $levelHarga = GrupPelanggan::where('kgrup', $this->kgrup)->value('levelharga');
+        $value = GrupPelanggan::where('kgrup', $this->kgrup)->value('levelharga');
 
         return Attribute::make(
-            get: fn () => $levelHarga,
+            get: fn () => $value,
         );
     }
 
