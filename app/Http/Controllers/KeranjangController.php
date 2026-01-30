@@ -31,7 +31,7 @@ class KeranjangController extends Controller
         $text .= '[' . Auth::guard('pelangganweb')->user()->kode . '] - ' . Auth::guard('pelangganweb')->user()->nama . '<br><br>';
         $text .= "Mau Order:<br>";
         foreach ($data[0]['details'] as $d) {
-            $satuan = $d->item_details->harga_jual[0]->satuan;
+            $satuan = ucwords(strtolower($d->item_details->harga_jual[0]->satuan));
             $qty = $d->qty;
             $hargajual = $d->item_details->harga_jual[0]->hargajual;
             $subtotal = $qty * $hargajual;
@@ -49,7 +49,9 @@ class KeranjangController extends Controller
         if (count($data[0]['details']) > 0) {
             $strTotal = number_format($total, 0, ',', '.');
             $text .= '<br>Total: Rp' . $strTotal;
-        }        
+        }
+
+        // echo $text;
 
         $textWA = str_replace('<br>', "\n", $text);
 

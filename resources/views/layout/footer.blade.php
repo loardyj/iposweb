@@ -83,7 +83,10 @@
     columnDefs: [
       {
         targets: "_all",
-        className: 'dt-head-center',
+        className: 'dt-head-center',        
+      },
+      {
+        targets: [1, 2, 3, 4, 5, 6],
         render: function (data, type, row) {
           var hargajual = "Rp"+Intl.NumberFormat('id-ID').format(row.hargajual);
           var keterangan = row.namaitem + '<br>@ ' + hargajual;
@@ -94,6 +97,7 @@
     // fixedColumns: true,
     responsive: true,
     order: [],
+    dom: 'lrtip'
     // dom: 'fltip'
     // ordering: false,
   });
@@ -130,6 +134,9 @@
   function filterData() {
     var jenisVal = $("#select2-jenis option:selected").text();
     var merekVal = $("#select2-merek option:selected").text();
+
+    var jenisIdx = $("#select2-jenis option:selected").index();
+    var merekIdx = $("#select2-merek option:selected").index();
     
     table
       .column(2)
@@ -142,6 +149,25 @@
       .draw();
 
     $('#filter-modal').modal('hide');
+
+    console.log(jenisIdx);
+
+    var filter_alert_text = '';
+    if (jenisIdx > 0 || merekIdx > 0) {
+      if (jenisIdx > 0) {
+        filter_alert_text += '<b>Jenis: </b>' + jenisVal;
+      }
+      if (jenisIdx > 0 && merekIdx > 0) {
+        filter_alert_text += ', ';
+      }
+      if (merekIdx > 0) {
+        filter_alert_text += '<b>Merek: </b>' + merekVal;
+      }
+      $('#filter_alert_text').html(filter_alert_text);
+      $('#filter_alert').show();    
+    } else {
+      $('#filter_alert').hide(); 
+    }
   }
 
   function resetFilter() {
@@ -380,7 +406,9 @@
   $(document).ready(function(){
     showCart();
 
-    
+    $('#cari_item').on('keyup', function() {
+        table.search(this.value).draw(); // Use the DataTables API search() method
+    });    
   });
 
   function updateQty(btn) {

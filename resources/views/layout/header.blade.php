@@ -66,5 +66,21 @@
       -moz-appearance: textfield;
       appearance: textfield; /* Standard property for newer browsers */
     }
+
+    .dataTables_length {
+      margin-bottom: 1rem;
+    }
+
+    .table-responsive {
+      overflow-y: hidden;
+    }
+
+    .dataTables_info {
+      margin-bottom: 1.25rem;
+    }
+
+    .dataTables_paginate {
+      margin-bottom: 1rem !important;
+    }
   </style>
 </head>

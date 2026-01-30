@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Kantor;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,17 @@ class DaftarItemController extends Controller
 {
     public function index()
     {
-        return view('daftar_item.index');
+        $kantor = Kantor::query()
+                ->where('kodekantor', '=', Auth::user()->kodeKantor)
+                ->first();
+
+        $kantorUTM = Kantor::query()
+                    ->where('kodekantor', '=', 'UTM')
+                    ->first();
+        // dd($kantor);
+        return view('daftar_item.index',
+                    ['kantor' => $kantor,
+                    'kantorUTM' => $kantorUTM]);
     }
 
     public function json()
