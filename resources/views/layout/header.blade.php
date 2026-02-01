@@ -81,6 +81,6 @@
 
     .dataTables_paginate {
       margin-bottom: 1rem !important;
-    }
+    }    
   </style>
 </head>

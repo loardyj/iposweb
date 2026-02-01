@@ -221,9 +221,14 @@
             // console.log('Success:', response);
         },
         error: function(xhr, status, error) {
+          var errorMsg = 'Terjadi Kesalahan!';
+          if (xhr.status == 401) {
+            errorMsg = xhr.responseJSON.message;
+          }
+
           swalWithBootstrapButtons.fire(
               "Error!",
-              "Terjadi Kesalahan!",
+              errorMsg,
               "error"
             );
           showCart();

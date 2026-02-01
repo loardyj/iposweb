@@ -88,11 +88,15 @@ class KeranjangController extends Controller
             'qty' => 'numeric|gt:0',
         ]);
 
-        $data = $request->all();        
-
-        DB::beginTransaction();
+        $data = $request->all();                
 
         try {
+            if (Auth::guard('pelangganweb')->user()->kode == config('settings.guest_kode')) {
+                return response()->json(['message' => 'Tamu/Guest Tidak Dapat Menggunakan Fitur Ini!'], 401);
+            }
+
+            DB::beginTransaction();
+
             $kode_supel = Auth::guard('pelangganweb')->user()->kode;
             // $kode_supel = 'UMUM';
 

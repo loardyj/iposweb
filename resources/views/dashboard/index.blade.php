@@ -60,8 +60,9 @@
                           <p class="mb-0 text-dark">Overall Performance</p>
                         </div> -->
                       </div>
-                    </div>
+                    </div>                    
                     <div class="col-sm-5">
+                      @if (Auth::user()->kode !== config('settings.guest_kode'))
                       <div class="d-flex align-items-center">
                         <div class="pe-4 border-muted border-opacity-10">
                           <h3 class="mb-1 fw-semibold fs-8 d-flex align-content-center">Rp {{ number_format($omset, 0, ',', '.') }}<i class="ti ti-arrow-up-right fs-5 lh-base text-success"></i>
@@ -69,10 +70,11 @@
                           <p class="mb-0 text-dark">Total Order Bulan Ini</p>
                         </div>
                       </div>
+                      @endif
                       <div class="welcome-bg-img mb-n7 text-end">
                         <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/backgrounds/welcome-bg.svg" alt="modernize-img" class="img-fluid">
                       </div>
-                    </div>
+                    </div>                    
                   </div>
                 </div>
               </div>

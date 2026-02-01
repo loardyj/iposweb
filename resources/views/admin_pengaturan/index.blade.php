@@ -97,7 +97,12 @@
                       <input type="radio" id="customRadio2" name="tampil_stok" value="Tidak" class="form-check-input" @checked(config('settings.tampil_stok') == 'Tidak')/>
                       <label class="form-check-label" for="customRadio2">Tidak</label>
                     </div>
-                  </div>                  
+                  </div>         
+                  
+                  <div class="mb-4">
+                    <label for="guest_kode" class="form-label">Kode Pelanggan Guest / Tamu</label>
+                    <input type="text" class="form-control" id="guest_kode" name="guest_kode" placeholder="..." value="{{ config('settings.guest_kode') }}">
+                  </div>
                   
                 </div>
               </div>

@@ -30,8 +30,8 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/main/index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
-                  <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/dark-logo.svg" class="dark-logo" alt="Logo-Dark" />
-                  <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
+                  <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="dark-logo" alt="Logo-Dark" />
+                  <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="light-logo" alt="Logo-light" />
                 </a>
                 <!-- <div class="row">
                   <div class="col-6 mb-2 mb-sm-0">
@@ -47,12 +47,12 @@
                     </a>
                   </div>
                 </div> -->
-                <!-- <div class="position-relative text-center my-4">
-                  <p class="mb-0 fs-4 px-3 d-inline-block bg-body text-dark z-index-5 position-relative">or sign in with
+                <div class="position-relative text-center my-4">
+                  <p class="mb-0 fs-4 px-3 d-inline-block bg-body text-dark z-index-5 position-relative">Halaman Login Pelanggan
                   </p>
                   <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
-                </div> -->
-                <form action="login" method="post">
+                </div>
+                <form action="{{ route('login') }}" method="post">
                   @csrf
                   <!-- @error('username')
                       <div class="label -mt-4 mb-2">
@@ -83,8 +83,9 @@
                         Remember this Device
                       </label> -->
                     </div>
-                    <a class="text-primary fw-medium" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/main/authentication-forgot-password.html">Forgot
-                      Password ?</a>
+                    <a class="text-primary fw-medium" href="{{ route('guest_login') }}">
+                      Login As Guest
+                    </a>
                   </div>
                   <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign In</a>
                   <!-- <div class="d-flex align-items-center justify-content-center">

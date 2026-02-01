@@ -42,6 +42,7 @@ class PengaturanController extends Controller
             'logo' => ['value' => $logoFileName],
             'nama_perusahaan' => ['value' => $request->nama_perusahaan],
             'tampil_stok' => ['value' => $request->tampil_stok],
+            'guest_kode' => ['value' => $request->guest_kode]
         ];
         
         foreach ($data as $id => $d) {

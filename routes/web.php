@@ -18,6 +18,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/login', [PelangganLoginController::class, 'index'])->name('url_login');
+Route::get('/guest_login', [PelangganLoginController::class, 'guest_login'])->name('guest_login');
 Route::post('/login', [PelangganLoginController::class, 'login'])->name('login');
 Route::get('/logout', [PelangganLoginController::class, 'logout'])->name('logout');
 

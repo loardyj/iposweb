@@ -15,6 +15,17 @@
   <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
 
   <title>{{ config('settings.nama_perusahaan') }} - Login Pelanggan</title>
+
+  <style>
+    @media screen and (max-width: 1299px) {
+      .authentication-login {
+        background-image: url("{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}");
+        background-size: 180px 60px;
+        background-repeat: no-repeat;
+        background-position: center 3rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -27,18 +38,18 @@
       <div class="position-relative z-index-5">
         <div class="row">
           <div class="col-xl-7 col-xxl-8">
-            <a href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/main/index.html" class="text-nowrap logo-img d-block px-4 py-9 w-100">
+            <!-- <a href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/main/index.html" class="text-nowrap logo-img d-block px-4 py-9 w-100">
               <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="dark-logo" alt="Logo-Dark" />
               <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="light-logo" alt="Logo-light" />
-            </a>
+            </a> -->
             <div class="d-none d-xl-flex align-items-center justify-content-center h-n80">
-              <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/backgrounds/login-security.svg" alt="modernize-img" class="img-fluid" width="500">
+              <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" alt="modernize-img" class="img-fluid" width="500">
             </div>
           </div>
           <div class="col-xl-5 col-xxl-4">
             <div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
-              <div class="auth-max-width col-sm-8 col-md-6 col-xl-7 px-4">
-                <h2 class="mb-1 fs-7 fw-bolder">Halaman Login</h2>
+              <div class="card border-1 auth-max-width col-sm-8 col-md-6 col-xl-7 px-4">
+                <h2 class="mb-1 fs-7 fw-bolder mt-3">Halaman Login</h2>
                 <p class="mb-7">Pelanggan</p>
                 <!-- <div class="row">
                   <div class="col-6 mb-2 mb-sm-0">

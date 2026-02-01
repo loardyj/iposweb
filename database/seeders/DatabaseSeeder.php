@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Pengaturan::factory()
-                    ->count(4)
+                    ->count(5)
                     ->sequence(
             [   'kode' => 'nama_perusahaan',
                 'value' => 'Nama Perusahaan'
@@ -36,6 +36,9 @@ class DatabaseSeeder extends Seeder
             ],
             [   'kode' => 'tampil_stok',
                 'value' => 'Ya'
+            ],
+            [   'kode' => 'guest_kode',
+                'value' => 'UMUM'
             ],
         )->create();
     }
