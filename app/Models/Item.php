@@ -17,4 +17,9 @@ class Item extends Model
     {
         return $this->hasMany(HargaJual::class, 'kodeitem', 'kodeitem');
     }
+
+    public function stok()
+    {
+        return $this->hasMany(ItemStok::class, 'kodeitem', 'kodeitem');
+    }
 }

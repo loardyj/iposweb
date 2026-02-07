@@ -9,7 +9,7 @@
         <ul class="mb-0">
           <li class="pb-7">
             <div class="d-flex align-items-center">
-              <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/products/product-1.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="modernize-img" />
+              <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/products/product-1.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="modernize-img" />
               <div>
                 <h6 class="mb-1">Supreme toys cooker</h6>
                 <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
@@ -30,7 +30,7 @@
           </li>
           <li class="pb-7">
             <div class="d-flex align-items-center">
-              <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/products/product-2.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="modernize-img" />
+              <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/products/product-2.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="modernize-img" />
               <div>
                 <h6 class="mb-1">Supreme toys cooker</h6>
                 <p class="mb-0 text-muted fs-2">Kitchenware Item</p>
@@ -51,7 +51,7 @@
           </li>
           <li class="pb-7">
             <div class="d-flex align-items-center">
-              <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/products/product-3.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="modernize-img" />
+              <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/products/product-3.jpg" width="95" height="75" class="rounded-1 me-9 flex-shrink-0" alt="modernize-img" />
               <div>
                 <h6 class="mb-1">Supreme toys cooker</h6>
                 <p class="mb-0 text-muted fs-2">Kitchenware Item</p>

@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-3">
                   <div class="text-center mb-n5">
-                    <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/breadcrumb/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                    <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/breadcrumb/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
                   </div>
                 </div>
               </div>
@@ -35,7 +35,7 @@
                     <div class="col-sm-7">
                       <h3 class="fw-semibold mb-0 fs-5">Welcome to Admin Panel</h3>
                       <div class="d-flex align-items-center py-9 mx-0 border-bottom">
-                        <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="140" height="140" alt="modernize-img" />
+                        <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="140" height="140" alt="modernize-img" />
                         <div class="ms-3">
                           <h5 class="mb-1 fs-3">Logged in :</h5>
                           <h3 class="fw-semibold mb-0 fs-5">{{ Auth::user()->nama }}</h3>
@@ -72,7 +72,7 @@
                         </div>
                       </div> -->
                       <div class="welcome-bg-img mb-n7 text-end">
-                        <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/backgrounds/welcome-bg.svg" alt="modernize-img" class="img-fluid">
+                        <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/backgrounds/welcome-bg.svg" alt="modernize-img" class="img-fluid">
                       </div>
                     </div>
                   </div>

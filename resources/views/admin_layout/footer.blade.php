@@ -1,9 +1,9 @@
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/vendor.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/vendor.min.js"></script>
   <!-- Import Js Files -->
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/simplebar/dist/simplebar.min.js"></script>
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.init.js"></script>
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/theme.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/simplebar/dist/simplebar.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.init.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/theme.js"></script>
 <!-- Custom Theme Settings -->
 <!-- <script>
   userSettings = {
@@ -16,14 +16,14 @@
     cardBorder: false, // true | false
   };
 </script> -->
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.min.js"></script>
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/sidebarmenu.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/sidebarmenu.js"></script>
 
 <!-- solar icons -->
 <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 
 <!-- highlight.js (code view) -->
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/highlights/highlight.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/highlights/highlight.min.js"></script>
 <script>
     hljs.initHighlightingOnLoad();
 
@@ -32,91 +32,19 @@
     codeBlock.textContent = codeBlock.innerHTML;
     });
 </script>
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/plugins/animation-init.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/plugins/animation-init.js"></script>
 
 <!-- Datatables -->
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.js"></script>
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/datatable/datatable-basic.init.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/datatable/datatable-basic.init.js"></script>
 
 <!-- Select2 -->
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/select2/dist/js/select2.full.min.js"></script>
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/select2/dist/js/select2.min.js"></script>
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/forms/select2.init.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/select2/dist/js/select2.full.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/select2/dist/js/select2.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/forms/select2.init.js"></script>
 
 <!-- SweetAlert2 -->
-<script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/sweetalert2/dist/sweetalert2.min.js"></script>
 
-<script>
-  var table = new DataTable('#daftar_admin', {
-    ajax: 'kelola-admin/json',
-    processing: true,
-    serverSide: true,
-    columns: [
-      {data: 'id'},
-      {data: 'nama'},
-      {data: 'username'},      
-      {data: 'status'},
-      {data: 'id',
-        render: function (data, type, row) {
-          var deleteUrl = "{{ route('kelola_admin.destroy', ':data_id') }}"
-          deleteUrl = deleteUrl.replace(':data_id', row.id);
-
-          return `<button class="btn btn-warning" onclick="fillData(${row.id})">Edit</button>
-
-                  <form id="delete-form-${row.id}" action="${deleteUrl}" method="POST" style="display:none;">
-                      @csrf
-                      @method('DELETE')
-                  </form>
-                  <button class="btn btn-danger" onclick="confirmDelete(${row.id})">Delete</button>`;
-        }
-      }
-    ],
-    responsive: true,
-    order: [],
-  });
-
-  function fillData(id) {
-    // Perform the AJAX request
-    $.ajax({
-        url: 'kelola-admin/json/' + id, // Server-side script URL
-        type: 'GET', // Or 'POST'
-        dataType: 'json', // Expecting JSON response
-        success: function(data) {
-            // On success, populate the modal fields with the received data
-            $('#id').val(data.id);
-            $('#nama').val(data.nama);
-            $('#username').val(data.username);
-            $('#status').val(data.status);
-            
-            // Show the modal (if using Bootstrap JS)
-            $('#edit-modal').modal('show');
-        },
-        error: function(xhr, status, error) {
-            // Handle errors
-            // console.error("AJAX error:", status, error);
-            // alert("An error occurred while fetching details.");
-        }
-    });
-  }
-
-  function confirmDelete(id) {
-    Swal.fire(
-    {
-      title: "Are you sure?",
-      text: "You will not be able to recover this imaginary file!",
-      type: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#DD6B55",
-      confirmButtonText: "Yes, delete it!",
-      closeOnConfirm: false,
-    }
-    ).then((result) => {
-      if (result.isConfirmed) {
-        // Submit the form with the corresponding ID
-        document.getElementById('delete-form-' + id).submit();
-      }
-    });
-  }
-  
-</script>
+<script src="{{ url('/public/assets') }}/js/admin.js"></script>

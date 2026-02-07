@@ -15,10 +15,13 @@ class DashboardController extends Controller
         $omsetBulanIni = Penjualan::where('kodesupel', Auth::guard('pelangganweb')->user()->kode)
                         ->whereMonth('tanggal', Carbon::now()->month)
                         ->sum('subtotal');
+        
+        $point = Penjualan::where('kodesupel', Auth::guard('pelangganweb')->user()->kode)
+                ->sum('point_ik');
 
         // dd($omsetBulanIni);
 
         
-        return view('dashboard.index', ['omset' => $omsetBulanIni]);
+        return view('dashboard.index', ['omset' => $omsetBulanIni, 'point' => $point]);
     }
 }

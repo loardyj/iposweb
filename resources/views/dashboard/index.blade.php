@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-3">
                   <div class="text-center mb-n5">
-                    <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/breadcrumb/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                    <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/breadcrumb/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
                   </div>
                 </div>
               </div>
@@ -35,17 +35,19 @@
                     <div class="col-sm-7">
                       <h3 class="fw-semibold mb-0 fs-5">Welcome back,</h3>
                       <div class="d-flex align-items-center py-9 mx-0 border-bottom">
-                        <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="140" height="140" alt="modernize-img" />
+                        <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="140" height="140" alt="modernize-img" />
                         <div class="ms-3">
                           <h5 class="mb-1 fs-3">{{ Auth::user()->nama }}</h5>
+                          @if (Auth::user()->kode !== config('settings.guest_kode'))
                           <span class="mb-1 d-block">{{ Auth::user()->nama_npwp }}</span>
                           <span class="mb-1 d-block">{{ Auth::user()->alamat }}</span>
                           <span class="mb-1 d-block">{{ Auth::user()->kota }}</span>
-                          <span class="mb-1 d-block">{{ Auth::user()->telepon }}</span>
-                          <span class="mb-1 d-block"></span>
+                          <span class="mb-1 d-block">{{ Auth::user()->telepon }}</span>        
+                          <span class="mb-1 d-block">Total Point : {{ number_format($point, 0, ',', '.') }}</span>
+                          @endif
                           <p class="mb-0 d-flex align-items-center gap-2">
                             <i class="ti ti-star fs-4"></i> {{ Auth::user()->kgrup }}
-                          </p>
+                          </p>                          
                         </div>
                       </div>
                       <div class="d-flex align-items-center">
@@ -72,7 +74,7 @@
                       </div>
                       @endif
                       <div class="welcome-bg-img mb-n7 text-end">
-                        <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/backgrounds/welcome-bg.svg" alt="modernize-img" class="img-fluid">
+                        <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/backgrounds/welcome-bg.svg" alt="modernize-img" class="img-fluid">
                       </div>
                     </div>                    
                   </div>

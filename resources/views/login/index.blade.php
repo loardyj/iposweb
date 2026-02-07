@@ -9,10 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/favicon.png" />
 
   <!-- Core Css -->
-  <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
+  <link rel="stylesheet" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
 
   <title>{{ config('settings.nama_perusahaan') }} - Login Pelanggan</title>
 </head>
@@ -20,7 +20,7 @@
 <body>
   <!-- Preloader -->
   <div class="preloader">
-    <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+    <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
   </div>
   <div id="main-wrapper" class="auth-customizer-none">
     <div class="position-relative overflow-hidden radial-gradient min-vh-100 w-100 d-flex align-items-center justify-content-center">
@@ -29,20 +29,20 @@
           <div class="col-md-8 col-lg-6 col-xxl-3 auth-card">
             <div class="card mb-0">
               <div class="card-body">
-                <a href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/main/index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
+                <a href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/main/index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
                   <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="dark-logo" alt="Logo-Dark" />
                   <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="light-logo" alt="Logo-light" />
                 </a>
                 <!-- <div class="row">
                   <div class="col-6 mb-2 mb-sm-0">
                     <a class="btn text-dark border fw-normal d-flex align-items-center justify-content-center rounded-2 py-8" href="javascript:void(0)" role="button">
-                      <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/svgs/google-icon.svg" alt="modernize-img" class="img-fluid me-2" width="18" height="18">
+                      <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/svgs/google-icon.svg" alt="modernize-img" class="img-fluid me-2" width="18" height="18">
                       <span class="flex-shrink-0">with Google</span>
                     </a>
                   </div>
                   <div class="col-6">
                     <a class="btn text-dark border fw-normal d-flex align-items-center justify-content-center rounded-2 py-8" href="javascript:void(0)" role="button">
-                      <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/svgs/facebook-icon.svg" alt="modernize-img" class="img-fluid me-2" width="18" height="18">
+                      <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/svgs/facebook-icon.svg" alt="modernize-img" class="img-fluid me-2" width="18" height="18">
                       <span class="flex-shrink-0">with FB</span>
                     </a>
                   </div>
@@ -90,7 +90,7 @@
                   <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign In</a>
                   <!-- <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-medium">New to Modernize?</p>
-                    <a class="text-primary fw-medium ms-2" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/main/authentication-register.html">Create an
+                    <a class="text-primary fw-medium ms-2" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/main/authentication-register.html">Create an
                       account</a>
                   </div> -->
                 </form>
@@ -254,11 +254,11 @@
   </div>
   <div class="dark-transparent sidebartoggler"></div>
   <!-- Import Js Files -->
-  <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/simplebar/dist/simplebar.min.js"></script>
-  <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.init.js"></script>
-  <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/theme.js"></script>
-  <script src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.min.js"></script>
+  <script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.init.js"></script>
+  <script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/theme.js"></script>
+  <script src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/js/theme/app.min.js"></script>
 
   <!-- solar icons -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>

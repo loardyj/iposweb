@@ -3,7 +3,7 @@
         <!-- Start Vertical Layout Sidebar -->
         <!-- ---------------------------------- -->
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="../main/index.html" class="text-nowrap logo-img">
+          <a href="{{ route('admin_dashboard') }}" class="text-nowrap logo-img">
             <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="dark-logo" alt="Logo-Dark" />
             <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="light-logo" alt="Logo-light" />
           </a>
@@ -242,7 +242,7 @@
         <div class="fixed-profile p-3 mx-4 mb-2 bg-secondary-subtle rounded mt-3">
           <div class="hstack gap-3">
             <div class="john-img">
-              <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="modernize-img" />
+              <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/profile/user-1.jpg" class="rounded-circle" width="40" height="40" alt="modernize-img" />
             </div>
             <div class="john-title">
               <h6 class="mb-0 fs-4 fw-semibold">{{ Auth::user()->nama }}</h6>

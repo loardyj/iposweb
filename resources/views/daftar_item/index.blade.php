@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-3">
                   <div class="text-center mb-n5">
-                    <img src="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/images/breadcrumb/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                    <img src="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/breadcrumb/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
                   </div>
                 </div>
               </div>

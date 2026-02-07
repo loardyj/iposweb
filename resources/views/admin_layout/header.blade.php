@@ -8,20 +8,20 @@
   <link rel="shortcut icon" type="image/png" href="{{ url('/public/uploads/logo') . '/' . config('settings.favicon') }}" />
 
   <!-- Core Css -->
-  <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
+  <link rel="stylesheet" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
 
   <title>{{ config('settings.nama_perusahaan') }} @yield('page_title')</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- Datatables -->
-  <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" />
 
   <!-- Select2 -->
-  <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/select2/dist/css/select2.min.css">
 
   <!-- SweetAlert2 -->
-  <link rel="stylesheet" href="{{ url('/assets/themes/modernize-bootstrap/dist') }}/assets/libs/sweetalert2/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/libs/sweetalert2/dist/sweetalert2.min.css">
 
   <style>
     tr td {
