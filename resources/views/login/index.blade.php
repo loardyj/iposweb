@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/images/logos/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="{{ url('/public/uploads/favicon') . '/' . config('settings.favicon') }}" />
 
   <!-- Core Css -->
   <link rel="stylesheet" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />

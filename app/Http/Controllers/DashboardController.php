@@ -10,8 +10,7 @@ class DashboardController extends Controller
 {
 
     public function index()
-    {
-        // dd(Auth::guard('pelangganweb')->user()->levelharga);
+    {        
         $omsetBulanIni = Penjualan::where('kodesupel', Auth::guard('pelangganweb')->user()->kode)
                         ->whereMonth('tanggal', Carbon::now()->month)
                         ->sum('subtotal');

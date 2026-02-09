@@ -19,7 +19,7 @@ class Pelanggan extends Authenticatable
 
     public function getAuthPassword()
     {
-        return Hash::make($this->telepon);
+        return Hash::make($this->kontak);
     }
 
     protected function kodeKantor(): Attribute
@@ -30,6 +30,10 @@ class Pelanggan extends Authenticatable
             $kantor = explode('-', $this->nama);
             $kantor = array_pop($kantor);
             $kantor = str_replace(' ', '', $kantor);
+        }
+
+        if ($kantor == 'XXX' || $kantor == 'YYY') {
+            $kantor = 'HP';
         }
 
         return Attribute::make(

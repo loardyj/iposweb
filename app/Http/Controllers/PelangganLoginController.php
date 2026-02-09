@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,17 +23,29 @@ class PelangganLoginController extends Controller
     {
         $credentials = $request->validate([
             'username' => ['required'],
-            // 'password' => ['required'],
+            'password' => ['required'],
         ]);
 
         if (Auth::guard('pelangganweb')->attempt(['kode' => $credentials['username'], 'password' => $request['password'] ?? '', 'tipe' => 'PL'])) {
-            $request->session()->regenerate();
-            return to_route('dashboard');
-        }
+            $today = new DateTime();
+            $tgl_lahir = DateTime::createFromFormat('Y-m-d H:i:s', Auth::guard('pelangganweb')->user()->tgl_lahir);
+            $today->setTime(0, 0, 0);
+            $tgl_lahir->setTime(0, 0, 0);            
+            
+            if ($tgl_lahir == false || $today <= $tgl_lahir) {
+                $request->session()->regenerate();
+                return to_route('dashboard');
+            } else {
+                Auth::guard('pelangganweb')->logout();
+                $errorMsg = 'Akun anda tidak aktif!';
+            } 
+        } else {
+            $errorMsg = 'Username / Password Salah!';
+        }        
  
         return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ])->onlyInput('username');
+            'error' => $errorMsg
+        ]);
     }
 
     public function guest_login()
