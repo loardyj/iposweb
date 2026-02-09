@@ -51,19 +51,38 @@ class KeranjangController extends Controller
             //         . $d->item_details->kodeitem . '] ' 
             //         . $d->item_details->namaitem 
             //         . ' @Rp' . $strHargaJual . '<br>';
-            
             if (count($d->item_details->stok) !== 0 && $d->item_details->stok[0]->stok > 0) {
                 if ($display_order) {
                     $text .= "<br><br>Mau Order:";
                     $display_order = false;
                 }
-                $text .= '<br>- ' . $qty . ' ' . $satuan . ' [' 
+
+                $realQty = $qty;
+                if ($qty > $d->item_details->stok[0]->stok) {
+                    $realQty = (int)$d->item_details->stok[0]->stok;
+                }
+
+                $text .= '<br>- ' . $realQty . ' ' . $satuan . ' [' 
                         . $d->item_details->kodeitem . '] ' 
                         . $d->item_details->namaitem 
                         . ' @Rp' . $strHargaJual;
 
-                $subtotal = $qty * $hargajual;
+                $subtotal = $realQty * $hargajual;
                 $total += $subtotal;
+
+                if ($qty > $d->item_details->stok[0]->stok) {
+                    $sisaQtyPO = $qty - $d->item_details->stok[0]->stok;
+                    if ($display_PO) {
+                        $textPO .= "<br><br>Mau PreOrder:";
+                        $display_PO = false;
+                    }
+                    $textPO .= '<br>- ' . $sisaQtyPO . ' ' . $satuan . ' [' 
+                                . $d->item_details->kodeitem . '] ' 
+                                . $d->item_details->namaitem 
+                                . ' @Rp' . $strHargaJual;
+                    $subtotal = $sisaQtyPO * $hargajual;
+                    $totalPO += $subtotal;
+                }
             } else {
                 if ($display_PO) {
                     $textPO .= "<br><br>Mau PreOrder:";
@@ -76,6 +95,31 @@ class KeranjangController extends Controller
                 $subtotal = $qty * $hargajual;
                 $totalPO += $subtotal;
             }
+            
+            // if (count($d->item_details->stok) !== 0 && $d->item_details->stok[0]->stok > 0) { // jika ada stok
+            //     if ($display_order) {
+            //         $text .= "<br><br>Mau Order:";
+            //         $display_order = false;
+            //     }
+            //     $text .= '<br>- ' . $qty . ' ' . $satuan . ' [' 
+            //             . $d->item_details->kodeitem . '] ' 
+            //             . $d->item_details->namaitem 
+            //             . ' @Rp' . $strHargaJual;
+
+            //     $subtotal = $qty * $hargajual;
+            //     $total += $subtotal;
+            // } else {
+            //     if ($display_PO) {
+            //         $textPO .= "<br><br>Mau PreOrder:";
+            //         $display_PO = false;
+            //     }
+            //     $textPO .= '<br>- ' . $qty . ' ' . $satuan . ' [' 
+            //                 . $d->item_details->kodeitem . '] ' 
+            //                 . $d->item_details->namaitem 
+            //                 . ' @Rp' . $strHargaJual;
+            //     $subtotal = $qty * $hargajual;
+            //     $totalPO += $subtotal;
+            // }
         }
 
         $totalText = '';
@@ -99,14 +143,14 @@ class KeranjangController extends Controller
 
         $sendText = $text . $textPO . '<br>' . $totalText;
 
-        // echo $sendText;
+        echo $sendText;
 
-        $textWA = str_replace('<br>', "\n", $sendText);
+        // $textWA = str_replace('<br>', "\n", $sendText);
 
-        $phoneNumber = Auth::guard('pelangganweb')->user()->WAKantor; // Include country code
-        $message = urlencode($textWA);
+        // $phoneNumber = Auth::guard('pelangganweb')->user()->WAKantor; // Include country code
+        // $message = urlencode($textWA);
 
-        return Redirect::away("https://wa.me/+62{$phoneNumber}?text={$message}");
+        // return Redirect::away("https://wa.me/+62{$phoneNumber}?text={$message}");
     }
 
     public function json()

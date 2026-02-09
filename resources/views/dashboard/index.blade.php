@@ -10,14 +10,15 @@
               <div class="row align-items-center">
                 <div class="col-9">
                   <h4 class="fw-semibold mb-8">Dashboard</h4>
-                  <!-- <nav aria-label="breadcrumb">
+                  <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item">
-                        <a class="text-muted text-decoration-none" href="../main/index.html">Order</a>
+                        <!-- <a class="text-muted text-decoration-none" href="##">{{ $tgl_lahir }}</a> -->
+                        {{ $tgl_lahir }}
                       </li>
-                      <li class="breadcrumb-item" aria-current="page">Daftar Item</li>
+                      <!-- <li class="breadcrumb-item" aria-current="page">Daftar Item</li> -->
                     </ol>
-                  </nav> -->
+                  </nav>
                 </div>
                 <div class="col-3">
                   <div class="text-center mb-n5">
@@ -43,7 +44,7 @@
                           <span class="mb-1 d-block">{{ Auth::user()->alamat }}</span>
                           <span class="mb-1 d-block">{{ Auth::user()->kota }}</span>
                           <span class="mb-1 d-block">{{ Auth::user()->telepon }}</span>        
-                          <span class="mb-1 d-block">Total Point : {{ number_format($point, 0, ',', '.') }}</span>
+                          <span class="mb-1 d-block">Total Point : {{ number_format($point, 0, ',', '.') }} (Exp. {{ $pointExpired }} )</span>
                           @endif
                           <p class="mb-0 d-flex align-items-center gap-2">
                             <i class="ti ti-star fs-4"></i> {{ Auth::user()->kgrup }}

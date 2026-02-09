@@ -1,7 +1,16 @@
+function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
+}
+
 var table = new DataTable('#daftar_item', {
     ajax: 'daftar-item/json',
     processing: true,
     serverSide: true,
+    searchDelay: 1000,
     // autoWidth: false,
     // columns: [
     //   {data: 'kodeitem', width:'80px'},
@@ -365,9 +374,31 @@ var table = new DataTable('#daftar_item', {
   $(document).ready(function(){
     showCart();
 
-    $('#cari_item').on('keyup', function() {
-        table.search(this.value).draw(); // Use the DataTables API search() method
-    });    
+    // $('#cari_item').on('keyup', function() {
+    //     table.search(this.value).draw(); // Use the DataTables API search() method
+    // });    
+    
+
+    var typingTimer;                // Timer identifier
+    var doneTypingInterval = 500;   // Time in milliseconds (e.g., 500ms)
+    var $customSearchInput = $('#cari_item'); // Your custom input field's ID
+
+    // On keyup event, clear the timer and start a new one
+    $customSearchInput.on('keyup', function () {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+    });
+
+    // On keydown event, clear the timer (to prevent premature search)
+    $customSearchInput.on('keydown', function () {
+        clearTimeout(typingTimer);
+    });
+
+    // Function to perform the search
+    function doneTyping () {
+        // Use the DataTables API to perform the search and redraw the table
+        table.search($customSearchInput.val()).draw();
+    }
   });
 
   function updateQty(btn) {

@@ -6,7 +6,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}"> {{-- Include CSRF Token --}}
 
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="{{ url('/public/uploads/logo') . '/' . config('settings.favicon') }}" />
+  <link rel="shortcut icon" type="image/png" href="{{ url('/public/uploads/favicon') . '/' . config('settings.favicon') }}" />
 
   <!-- Core Css -->
   <link rel="stylesheet" href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/assets/css/styles.css" />
