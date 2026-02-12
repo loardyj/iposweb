@@ -30,7 +30,10 @@ class PelangganLoginController extends Controller
             $today = new DateTime();
             $tgl_lahir = DateTime::createFromFormat('Y-m-d H:i:s', Auth::guard('pelangganweb')->user()->tgl_lahir);
             $today->setTime(0, 0, 0);
-            $tgl_lahir->setTime(0, 0, 0);            
+
+            if ($tgl_lahir !== false) {
+                $tgl_lahir->setTime(0, 0, 0);  
+            }                      
             
             if ($tgl_lahir == false || $today <= $tgl_lahir) {
                 $request->session()->regenerate();

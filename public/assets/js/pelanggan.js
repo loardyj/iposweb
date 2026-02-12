@@ -32,7 +32,8 @@ var table = new DataTable('#daftar_item', {
       },
       {data: 'stok', defaultContent: 'N/A',
         // className: 'dt-right',
-        render: $.fn.dataTable.render.number('.', ',', 0)
+        render: $.fn.dataTable.render.number('.', ',', 0),
+        visible: $("#stoks").is(":hidden") ? false : true,
       },
     ],
 
@@ -133,11 +134,7 @@ var table = new DataTable('#daftar_item', {
     filterData();
   }  
 
-  if ($("#stok").is(":hidden")) {
-    table.column(6).visible(false);
-  } else {
-    table.column(6).visible(true);
-  }
+  
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -191,6 +188,14 @@ var table = new DataTable('#daftar_item', {
           // console.error('Error:', xhr.responseText);
         }
     });
+  }
+
+  function errorTamu() {
+    swalWithBootstrapButtons.fire(
+      "Error!",
+      "Tamu/Guest Tidak Dapat Menggunakan Fitur Ini!",
+      "error"
+    );
   }
 
   function addToCart(id, keterangan) {
@@ -372,7 +377,7 @@ var table = new DataTable('#daftar_item', {
   });
 
   $(document).ready(function(){
-    showCart();
+    showCart();    
 
     // $('#cari_item').on('keyup', function() {
     //     table.search(this.value).draw(); // Use the DataTables API search() method

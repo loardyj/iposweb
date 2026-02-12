@@ -83,7 +83,11 @@
               <span class="text-dark fw-semibold fs-3" id="keranjang_total">Rp0</span>
             </div>
           </div>
+          @if (Auth::user()->kode !== config('settings.guest_kode'))
           <a href="{{ route('keranjang.toWA') }}" target="_blank" class="btn btn-primary w-100" id="linkWA">Kirim Order Ke WA</a>
+          @else
+          <a onclick="errorTamu();" class="btn btn-primary w-100" id="linkWA">Kirim Order Ke WA</a>
+          @endif
         </div>
       </div>
     </div>

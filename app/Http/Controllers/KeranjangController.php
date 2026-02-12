@@ -143,14 +143,14 @@ class KeranjangController extends Controller
 
         $sendText = $text . $textPO . '<br>' . $totalText;
 
-        echo $sendText;
+        // echo $sendText;
 
-        // $textWA = str_replace('<br>', "\n", $sendText);
+        $textWA = str_replace('<br>', "\n", $sendText);
 
-        // $phoneNumber = Auth::guard('pelangganweb')->user()->WAKantor; // Include country code
-        // $message = urlencode($textWA);
+        $phoneNumber = Auth::guard('pelangganweb')->user()->WAKantor; // Include country code
+        $message = urlencode($textWA);
 
-        // return Redirect::away("https://wa.me/+62{$phoneNumber}?text={$message}");
+        return Redirect::away("https://wa.me/+62{$phoneNumber}?text={$message}");
     }
 
     public function json()

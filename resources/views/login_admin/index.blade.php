@@ -29,7 +29,7 @@
           <div class="col-md-8 col-lg-6 col-xxl-3 auth-card">
             <div class="card mb-0">
               <div class="card-body">
-                <a href="{{ url('/public/assets/themes/modernize-bootstrap/dist') }}/main/index.html" class="text-nowrap logo-img text-center d-block mb-5 w-100">
+                <a href="{{ route('url_admin_login') }}" class="text-nowrap logo-img text-center d-block mb-5 w-100">
                   <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="dark-logo" alt="Logo-Dark" />
                   <img src="{{ url('/public/uploads/logo') . '/' . config('settings.logo') }}" width="180px" height="60px" class="light-logo" alt="Logo-light" />
                 </a>
