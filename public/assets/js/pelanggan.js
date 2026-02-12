@@ -283,7 +283,11 @@ var table = new DataTable('#daftar_item', {
           var hargajual = Intl.NumberFormat('id-ID').format(item.item_details.harga_jual[0].hargajual);
           var qty = item.qty;
           var subtotal = item.item_details.harga_jual[0].hargajual * item.qty;
-          
+          var stok = 0;
+          if (item.item_details.stok.length !== 0) {
+            stok = item.item_details.stok[0].stok;
+          }
+
           var preOrderHtml = "";
           if (item.item_details.stok.length == 0 || item.item_details.stok[0].stok <= 0) {
             preOrderHtml = '<span class="badge round-30 bg-danger text-white p-1 fs-2">PreOrder</span>';
@@ -300,34 +304,78 @@ var table = new DataTable('#daftar_item', {
           var idLi = li.find('#id').text();
           if (id == idLi) {
             li.find(".qty").val(qty);
+            
+            if (qty > stok && stok > 0) {
+              preOrderQty = qty-stok;
+              $('#keranjang li div#preOrderQty').eq(index).html(`<span class="rounded-1 p-1 bg-primary ms-4 mb-0 fs-2 text-white">PreOrder: ` + preOrderQty + ` Pcs</span>`);
+            } else {
+              $('#keranjang li div#preOrderQty').eq(index).html(``);
+            }
           } else {
             // console.log(id + "=" + idLi);
+            var kontenCart = '';
             if (idLi == '' || id < idLi) {
-              ul.append($(`<li class="pb-7 border-bottom mb-2">
-                    <div class="d-flex align-items-center mb-1">              
-                      <div>
-                        <span id="id" hidden>` + id + `</span>
-                        <span id="kode" hidden>` + kodeitem + `</span>
-                        <h6 class="mb-1">`+ preOrderHtml + ` [` + kodeitem + `] - ` + namaitem + `</h6>
-                        <p class="mb-0 text-muted fs-2">Merek: ` + merek + `</p>
-                        <div class="d-flex align-items-center justify-content-between mt-2">
-                          <h6 class="fs-2 fw-semibold mb-0 text-muted">Rp` + hargajual +`</h6><br>                  
-                        </div>                
-                      </div>              
-                    </div>
-                    <button class="btn border-0 round-30 p-0 bg-danger-subtle text-danger float-start" type="button" onclick="deleteCartItem(`+id+`)">
-                      <i class="icon ti ti-trash fs-3 m-2"></i>
-                    </button>   
-                    <div class="input-group input-group-sm w-30 float-end">
-                      <button class="btn border-0 round-20 p-0 bg-success-subtle text-success kurang" type="button" id="add1" onclick="updateQty(this)">
-                        -
-                      </button>
-                      <input type="number" class="form-control round-20 bg-transparent text-muted fs-2 border-0 text-center qty qty_keranjang" value="` + qty + `" min="1"/>
-                      <button class="btn text-success bg-success-subtle p-0 round-20 border-0 tambah" type="button" id="addo2" onclick="updateQty(this)">
-                        +
-                      </button>
-                    </div>
-                  </li>`));
+              kontenCart = `<li class="pb-7 border-bottom mb-2">
+                              <div class="d-flex align-items-center mb-1">              
+                                <div>
+                                  <span id="id" hidden>` + id + `</span>
+                                  <span id="kode" hidden>` + kodeitem + `</span>
+                                  <h6 class="mb-1">`+ preOrderHtml + ` [` + kodeitem + `] - ` + namaitem + `</h6>
+                                  <p class="mb-0 text-muted fs-2">Merek: ` + merek + `</p>
+                                  <div class="d-flex align-items-center justify-content-between mt-2">
+                                    <h6 class="fs-2 fw-semibold mb-0 text-muted">Rp` + hargajual +`</h6><br>                  
+                                  </div>                
+                                </div>              
+                              </div>
+                              <button class="btn border-0 round-30 p-0 bg-danger-subtle text-danger float-start" type="button" onclick="deleteCartItem(`+id+`)">
+                                <i class="icon ti ti-trash fs-3 m-2"></i>
+                              </button>
+                              <div id="preOrderQty" style="display: inline;">`;
+
+              if (qty > stok && stok > 0) {
+                preOrderQty = qty-stok;
+                kontenCart += `<span class="rounded-1 p-1 bg-primary ms-4 mb-0 fs-2 text-white">PreOrder: ` + preOrderQty + ` Pcs</span>`;
+              }
+              
+              kontenCart += `</div>
+                              <div class="input-group input-group-sm w-30 float-end">
+                                <button class="btn border-0 round-20 p-0 bg-success-subtle text-success kurang" type="button" id="add1" onclick="updateQty(this)">
+                                  -
+                                </button>
+                                <input type="number" class="form-control round-20 bg-transparent text-muted fs-2 border-0 text-center qty qty_keranjang" value="` + qty + `" min="1"/>
+                                <button class="btn text-success bg-success-subtle p-0 round-20 border-0 tambah" type="button" id="addo2" onclick="updateQty(this)">
+                                  +
+                                </button>
+                              </div>
+                            </li>`;
+              ul.append($(kontenCart));
+              // ul.append($(`<li class="pb-7 border-bottom mb-2">
+              //       <div class="d-flex align-items-center mb-1">              
+              //         <div>
+              //           <span id="id" hidden>` + id + `</span>
+              //           <span id="kode" hidden>` + kodeitem + `</span>
+              //           <h6 class="mb-1">`+ preOrderHtml + ` [` + kodeitem + `] - ` + namaitem + `</h6>
+              //           <p class="mb-0 text-muted fs-2">Merek: ` + merek + `</p>
+              //           <div class="d-flex align-items-center justify-content-between mt-2">
+              //             <h6 class="fs-2 fw-semibold mb-0 text-muted">Rp` + hargajual +`</h6><br>                  
+              //           </div>                
+              //         </div>              
+              //       </div>
+              //       <button class="btn border-0 round-30 p-0 bg-danger-subtle text-danger float-start" type="button" onclick="deleteCartItem(`+id+`)">
+              //         <i class="icon ti ti-trash fs-3 m-2"></i>
+              //       </button>
+              //       <span class="rounded-1 p-1 bg-primary ms-4 mb-0 fs-2 text-white">PreOrder: 5 Pcs</span>               
+              //       <div class="input-group input-group-sm w-30 float-end">
+                                                
+              //         <button class="btn border-0 round-20 p-0 bg-success-subtle text-success kurang" type="button" id="add1" onclick="updateQty(this)">
+              //           -
+              //         </button>
+              //         <input type="number" class="form-control round-20 bg-transparent text-muted fs-2 border-0 text-center qty qty_keranjang" value="` + qty + `" min="1"/>
+              //         <button class="btn text-success bg-success-subtle p-0 round-20 border-0 tambah" type="button" id="addo2" onclick="updateQty(this)">
+              //           +
+              //         </button>
+              //       </div>
+              //     </li>`));
             }
             else if (id > idLi) {
               li.remove();
