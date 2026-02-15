@@ -308,8 +308,10 @@ var table = new DataTable('#daftar_item', {
             if (qty > stok && stok > 0) {
               preOrderQty = qty-stok;
               $('#keranjang li div#preOrderQty').eq(index).html(`<span class="rounded-1 p-1 bg-primary ms-4 mb-0 fs-2 text-white">PreOrder: ` + preOrderQty + ` Pcs</span>`);
+              $("#keranjang li").eq(index).removeClass("pb-7").addClass("pb-2");
             } else {
               $('#keranjang li div#preOrderQty').eq(index).html(``);
+              $("#keranjang li").eq(index).removeClass("pb-2").addClass("pb-7");
             }
           } else {
             // console.log(id + "=" + idLi);
@@ -335,6 +337,8 @@ var table = new DataTable('#daftar_item', {
               if (qty > stok && stok > 0) {
                 preOrderQty = qty-stok;
                 kontenCart += `<span class="rounded-1 p-1 bg-primary ms-4 mb-0 fs-2 text-white">PreOrder: ` + preOrderQty + ` Pcs</span>`;
+                kontenCart = kontenCart.replace("pb-7", "pb-2");
+                console.log(kontenCart);
               }
               
               kontenCart += `</div>
